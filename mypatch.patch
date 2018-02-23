@@ -1,0 +1,16 @@
+diff --git a/satu.py b/satu.py
+index a4a7fba..e4ea8ae 100755
+--- a/satu.py
++++ b/satu.py
+@@ -8,8 +8,10 @@ url = "http://www.satuwater.com.my/akauns.php"
+ page = urllib2.urlopen(url).read()
+ soup = BeautifulSoup(page,"lxml")
+ 
+-for tr in soup.find_all('tr')[2:]:
++for tr in soup.findAll('tr', limit=20)[2:]:
+     tds = tr.find_all('td')
+     print tds[0].text
++    #print tds[1].text
++    #print tds[2].text
+     #print " %s, %s,%s" % \
+     #      (tds[0].text, tds[1].text, tds[2].text)
